@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.min.js"></script> -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script> -->
+
+    <script src="./director.js"></script>
+
+    <script type="text/javascript">
+      director.directives.userLikes = function(val) {
+        var ids = val.split(","), $el = $(this)
+        _.each(ids, function(id){
+          $el.find(".stream-item-"+id.toString()+" .like").text("Liked")
+        })
+        return $el
+      }
+      $(document).ready(function(){
+        director.direct()
+      })
+    </script>
+  </head>
+
+  <body>
+
+    <div id="assign" data-direct='{"find":"select","val":"2"}'>
+      <label>Assign:</label>
+      <select name="user_id">
+        <option value="1">John Doe</option>
+        <option value="2">Jane Doe</option>
+      </select>
+    </div>
+
+    <div id="menu" data-direct='{"find":"#dashboard a","css":{"color": "red"}}'>
+      <ul>
+        <li id="dashboard"><a href="#">Dashboard</a></li>
+        <li id="timeline"><a href="#">Timeline</a></li>
+        <li id="profile"><a href="#">Profile</a></li>
+      </ul>
+    </div>
+
+    <div id="activity" data-direct='{"userLikes":"1,4,5"}'>
+      <ul>
+        <li class="stream-item-1">
+          <div class="text">Stream Item #1</div>
+          <div class="like">Like</div>
+        </li>
+        <li class="stream-item-2">
+          <div class="text">Stream Item #2</div>
+          <div class="like">Like</div>
+        </li>
+        <li class="stream-item-3">
+          <div class="text">Stream Item #3</div>
+          <div class="like">Like</div>
+        </li>
+        <li class="stream-item-4">
+          <div class="text">Stream Item #4</div>
+          <div class="like">Like</div>
+        </li>
+        <li class="stream-item-5">
+          <div class="text">Stream Item #5</div>
+          <div class="like">Like</div>
+        </li>
+        <li class="stream-item-6">
+          <div class="text">Stream Item #6</div>
+          <div class="like">Like</div>
+        </li>
+      </ul>
+    </div>
+
+  </body>
+</html>

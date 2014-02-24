@@ -15,7 +15,7 @@
         _.each(ids, function(id){
           $el.find(".stream-item-"+id.toString()+" .like").text("Liked")
         })
-        return $el
+        return this
       }
       $(document).ready(function(){
         director.direct()

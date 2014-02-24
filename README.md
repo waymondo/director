@@ -17,7 +17,7 @@ A dinky template plugin for `$` (either jQuery or Zepto with the `data` module) 
 When you call `director.direct()` the following JavaScript will get automatically executed:
 
 ``` coffeescript
-$("#menu").find("#dashboard a").css("color","red")
+$("#menu").find("#dashboard a").css({color: "red"})
 ```
 
 Check the [blog post](http://blog.waymondo.com/2014-02-23-director-dot-js-dynamic-template-decorating-from-declarative-attributes) and [example.html](https://github.com/waymondo/director/blob/master/example.html) for more info and examples.
